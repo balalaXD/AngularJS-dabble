@@ -36,14 +36,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     url: '/{categoryShortName}',
     templateUrl: 'src/MenuApp/templates/items.view.html',
     controller: 'ItemsController as itemsCtrl',
-    params: {
-      categoryShortName: null
-    },
     resolve: {
-      iitems: ['MenudataService', '$stateParams', 
-        function (MenudataService, $stateParams) {
-          console.log($stateParams.categoryShortName)
-          return MenudataService.getItemsForCategory($stateParams.categoryShortName)
+      itemsData: ['MenudataService', '$stateParams',
+      function (MenudataService, $stateParams) {
+        return MenudataService.getItemsForCategory($stateParams.categoryShortName);
       }]
     }
   });

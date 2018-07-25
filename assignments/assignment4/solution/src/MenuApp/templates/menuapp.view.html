@@ -1,2 +1,9 @@
 <a ui-sref="home">Home</a> &lt; <span>List</span>
-<categories items="categoriesList.items"></categories>
+<div class="container">
+  <section class="left-panel">
+    <categories items="categoriesList.items"></categories>
+  </section>
+  <section class="right-panel">
+    <ui-view></ui-view>
+  </section>
+</div>
